@@ -6,7 +6,6 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <h1>React App</h1>
       <Outlet />
     </div>
   )
