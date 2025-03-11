@@ -1,6 +1,7 @@
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./MovieGrid.css";
+import MovieCard from "../components/MovieCard";
 
 const searchUrl = import.meta.env.VITE_SEARCH;
 const apiKey = import.meta.env.VITE_API_KEY;
@@ -24,10 +25,10 @@ const Search = () => {
   
   return (
     <div className="container">
-      <h2 className="title">Resultado encontrados para "<span className="query-text">{query}</span>"</h2>
+      <h2 className="title">Resultados encontrados para "<span className="query-text">{query}</span>"</h2>
       <div className="movies-container">
-        {movies.length === 0 && <p>Carregando...</p>}
-        {movies.length > 0 &&
+        {movies && movies.length === 0 && <p>Carregando...</p>}
+        {movies && movies.length > 0 &&
           movies.map((m) => <MovieCard key={m.id} movie={m} />)}
       </div>
     </div>
